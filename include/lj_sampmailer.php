@@ -29,11 +29,10 @@ class lj_sampmailer
             isset($_GET['template']) && !empty($_GET['template'])))
             {
 
-                $format_message = self::fillTemplate(array("{title}" => $_GET['title'], "{body}" => $_GET['body'], "{about}" => $_GET['about']), $template);
+                $format_message = self::fillTemplate(array("{title}" => $_GET['title'], "{body}" => $_GET['body'], "{about}" => $_GET['about']), $_GET['template']);
                 self::sendEmail($_GET['to_email'], $_GET['to_name'], $_GET['from_email'], $_GET['from_name'], $_GET['title'], $format_message);
 
-                echo 'format_message: <br>';
-               	echo $format_message;
+               	echo $format_message; // debug
             }
             else
             {
